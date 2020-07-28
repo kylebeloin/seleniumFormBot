@@ -1,11 +1,13 @@
+#! /Users/kylebeloin/Desktop/ua_undergrad/gsheets_project/sheets_project-env/bin/python3
+import os
+import time
 import xlwings as xw
 import pandas as pd
 from selenium import webdriver
-import time
-import os
+
+
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
-
 working_directory = os.getcwd()
 
 
@@ -14,7 +16,9 @@ def main():
     new_entries_dict = toPandas(book)
     
     if len(new_entries_dict) == 0:
-        Exception ("No new additions.")
+        import sys
+        sys.tracebacklimit = 0
+        raise Exception ("No new additions! Enter a new entry and then run macro.")
     else:
         openChrome(new_entries_dict)
 
@@ -46,17 +50,22 @@ def openChrome(new_entries_dict):
     
     # submit = '//*[@id="form_7156f585-1060-4a2d-9bbb-3208433ebd56_container"]/div[3]/button'
 
-
+    
     chromedriver_location = working_directory + "/chromedriver" # Make sure the driver is in the same directory (or list the directory here.)
+    
     driver = webdriver.Chrome(chromedriver_location)
 
     for entry in new_entries_dict:
         driver.get('https://yuma.arizona.edu/request-info')
         for key in list(webpage_dict.keys()):
             driver.find_element_by_xpath(webpage_dict[key]).send_keys(new_entries_dict[entry][key]) # sends test vallue to text box element.
-        time.sleep(3)
+        time.sleep(1)
         driver
         #driver.find_element_by_xpath(submit).click()
     driver.quit()
 
-    
+if __name__ == "__main__":
+    xw.Book('myproject.xlsm').set_mock_caller()
+    main()
+
+
