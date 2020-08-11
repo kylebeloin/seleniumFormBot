@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/kylebeloin/Documents/professional/portfolio_projects/bots/form_project/gsheetsYuma/program_files/myproject.py", line 13, in main
+    new_entries_dict = toPandas(book)
+  File "/Users/kylebeloin/Documents/professional/portfolio_projects/bots/form_project/gsheetsYuma/program_files/myproject.py", line 30, in toPandas
+    merged_df = index_df.merge(updated_df, how="outer", indicator=True)
+  File "/Users/kylebeloin/Documents/professional/portfolio_projects/bots/form_project/bot-venv/lib/python3.8/site-packages/pandas/core/frame.py", line 7284, in merge
+    return merge(
+  File "/Users/kylebeloin/Documents/professional/portfolio_projects/bots/form_project/bot-venv/lib/python3.8/site-packages/pandas/core/reshape/merge.py", line 73, in merge
+    op = _MergeOperation(
+  File "/Users/kylebeloin/Documents/professional/portfolio_projects/bots/form_project/bot-venv/lib/python3.8/site-packages/pandas/core/reshape/merge.py", line 613, inø&Ä
