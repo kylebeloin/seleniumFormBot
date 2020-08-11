@@ -1,3 +1,9 @@
 config.php
+<<<<<<< HEAD
 client_secret.json
 .DS_Store
+=======
+.DS_Store
+client_secret.json
+~$myproject.xlsm
+>>>>>>> kyle-branch
