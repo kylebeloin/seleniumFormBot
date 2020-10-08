@@ -40,7 +40,7 @@ def openChrome(new_entries_dict):
     driver = webdriver.Chrome(chromedriver_location)
 
     for entry in new_entries_dict:
-        driver.get('https://yuma.arizona.edu/request-info')
+        driver.get('website')
         for key in list(webpage_dict.keys()):
             driver.find_element_by_xpath(webpage_dict[key]).send_keys(new_entries_dict[entry][key]) # sends test value to text box element.
         #driver.find_element_by_xpath(submit).click()
